@@ -1,0 +1,4 @@
+# This file tells ament tools to ignore this directory and all subdirectories
+# The third_party code should not be linted or tested
+
+

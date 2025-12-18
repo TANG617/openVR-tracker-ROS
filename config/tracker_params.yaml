@@ -1,0 +1,35 @@
+trackers_node:
+  ros__parameters:
+    publish_rate: 100.0
+    parent_frame: "map"
+    base_link: "base_link"
+    calibration_file: "calibration.yaml"
+
+    left_tcp_topic: "/mink_fk/left_tcp_pose"
+    right_tcp_topic: "/mink_fk/right_tcp_pose"
+
+    # 跳跃检测器配置
+    # - jump_speed_limit: 速度超过此值判定为跳跃 (m/s)
+    # - recovery_window_size: 恢复所需的稳定帧数
+    # - stability_threshold: 位置方差阈值 (m²)，0.0001 对应标准差约 1cm
+    detector:
+      enable_jump_detection: true
+      jump_speed_limit: 5.0
+      recovery_window_size: 20
+      stability_threshold: 0.0001
+
+    # 滤波器配置
+    # - smoothing_alpha: 指数平滑系数，越小越平滑但延迟越大
+    # - normal_speed_limit: 速度限幅上限 (m/s)
+    filter:
+      enable: true
+      smoothing_alpha: 0.3
+      normal_speed_limit: 2.0
+
+    tracker_names: ["left", "right"]
+
+    trackers:
+      left:
+        serial_number: "LHR-C952205E"
+      right:
+        serial_number: "LHR-DD915E8C"
